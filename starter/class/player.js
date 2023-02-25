@@ -103,6 +103,9 @@ class Player extends Character {
   hit(name) {
 
     // Fill this in
+    // let item=this.currentRoom.getEnemyByName(name);
+    // Enemy.attackTarget=item;
+    
 
   }
 
