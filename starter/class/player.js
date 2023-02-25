@@ -6,6 +6,7 @@ class Player extends Character {
 
   constructor(name, startingRoom) {
     super(name, "main character", startingRoom);
+    this.items=[];
   }
 
   move(direction) {
@@ -36,24 +37,66 @@ class Player extends Character {
   takeItem(itemName) {
 
     // Fill this in
+    let item=this.currentRoom.getItemByName(itemName);
+    this.items.push(item);
+    let index;
+    this.currentRoom.items.forEach(
+      (element,i)=>{
+        if(element.name===itemName){
+          index=i;
+        }
+      }
+    );
+    this.currentRoom.items.splice(index,1);
+
 
   }
 
   dropItem(itemName) {
 
     // Fill this in
+    let item=this.getItemByName(itemName);
+    this.currentRoom.items.push(item);
+    let index;
+    this.items.forEach((element,i)=>
+    {
+      if(element.name===itemName){
+        index=i;
+      }
+    }
+    );
+    this.items.splice(index,1);
 
   }
 
   eatItem(itemName) {
 
     // Fill this in
-
+    let item=this.getItemByName(itemName);
+    if(item instanceof Food){
+      let index;
+      this.items.forEach((element,i)=>
+    {
+      if(element.name===itemName){
+        index=i;
+      }
+    }
+    );
+    this.items.splice(index,1);
+    }
+      
   }
 
   getItemByName(name) {
 
     // Fill this in
+    let result;
+    for(let item of this.items){
+      if(item.name===name){
+        result=item;
+      }
+    }
+    return result;
 
   }
 

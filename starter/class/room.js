@@ -54,12 +54,20 @@ class Room {
   getItemByName(name) {
 
     // Fill this in
+    let result;
+    for(let item of this.items){
+      if(item.name===name){
+        result=item;
+      }
+    }
+    return result;
 
   }
 
   getEnemyByName(name) {
 
     // Fill this in
+    
 
 }
 }

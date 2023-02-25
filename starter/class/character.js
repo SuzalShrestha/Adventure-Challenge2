@@ -14,13 +14,18 @@ class Character {
   applyDamage(amount) {
     // Fill this in
     this.health=this.health-amount;
+    if(this.health===0){
+      this.die();
+    }
   }
 
   die() {
     // Fill this in
+    this.currentRoom.items.push(...this.items);
     this.items.splice(0,this.items.length);
     this.currentRoom=null;
   }
+
 
 }
 
